@@ -3,6 +3,6 @@ build_docker:
 
 run_docker:
 	docker run \
-        -it \
-        -v $(pwd):/workspace \
-        slambook2
+                -it \
+                -v $(shell pwd):/workspace \
+                slambook2
