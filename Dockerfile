@@ -20,4 +20,10 @@ RUN apt install -y libopencv-dev
 COPY ./3rdparty/g2o /3rdparty/g2o
 RUN cd /3rdparty/g2o; mkdir build; cd build; cmake ..; make -j; make install
 
+RUN apt install -y libblas-dev liblapack-dev libsuitesparse-dev
+RUN apt install -y libgflags-dev libgoogle-glog-dev
+# 4. manually install ceres-solver from source
+COPY ./3rdparty/ceres-solver /3rdparty/ceres-solver
+RUN cd /3rdparty/ceres-solver; mkdir build; cd build; cmake ..; make -j; make install
+
 WORKDIR /workspace
